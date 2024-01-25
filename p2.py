@@ -1,4 +1,7 @@
-def calculate(list):
+def calculate(string):
+    string = string.replace(")", "")
+    string = string.replace("(", "")
+    list = string.split()
     size = len(list) 
 
     result = 0
@@ -6,9 +9,13 @@ def calculate(list):
     if(size==0):
         print("")
     else:
-        while i<size:     
-            result+=int(list[i])
-            i+=1          
+        while i<size:
+            try:
+                result+=int(list[i])
+                i+=1
+            except:
+                result-=2*int(list[i+1]) 
+                i+=1
         print(result)
 
 def parse(token):
@@ -39,17 +46,13 @@ def prenthesis(list):
         list.pop(end+1)
 
     result_string = ' '.join(list)
-
     return(result_string)
-
 
 try:
     while True:
         token=input()
-        #pren
         list = parse(token)
-        
-        print(parse(prenthesis(list)))
-        #calculate(list)
+        list = prenthesis(list)
+        calculate(list)
 except EOFError:
         print("")
