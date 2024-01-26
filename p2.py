@@ -3,6 +3,9 @@ def pmpv():
     def calculate(list):
         size = len(list) 
         result = 0   
+        for i in range(size):
+            if(list[i].isidentifier()):
+                list[i] = variables[list[i]]
 
         if(size==0):
             print("")
@@ -52,10 +55,8 @@ def pmpv():
             token=input()
             list = parse(token)
             list = parenthesis(list)
-            # print(list)
             if(list.count("=")):
                 variables[list[0]] = calculate(list[2:])
-                #print(calculate(list[2:]))
             elif(list[0].isidentifier()):
                 print(variables[list[0]])
             else:
