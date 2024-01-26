@@ -89,8 +89,3 @@ def pmpvi(program):
             result = evaluate_expression(line)
             print(result)
 pmpvi("1+2")
-
-
-elif(list[i+1] == "-"):
-                    print(int(list[i])-int(list[i+2]))
-                    i+=3
